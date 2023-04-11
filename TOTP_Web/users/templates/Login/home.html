@@ -1,0 +1,16 @@
+{% extends 'homepage/base.html' %}
+{% load static %} 
+{% block title %}Profile{% endblock %}
+{% block cssblock %} {% endblock %} 
+{% block content %}
+
+<div class="LoginSuccess">
+    <div class="container">
+        <h1>Profile</h1>
+        <p>Xin chao {{ user.username }}</p>
+        <p><a href="{% url 'todo_app:todo_list' %}">My Todo List</a></p>
+        <p><a href="{% url 'users:change_password' %}">Change Password</a></p>
+    </div>
+
+</div>
+{% endblock %} {% block jsblock %} {% endblock %}

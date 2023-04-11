@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Xác thực OTP{% endblock %}
+{% block cssblock %}
+
+<link rel="stylesheet" href="{% static 'homepage/css/signup.css' %}" type="text/css">
+{% endblock %}
+{% block content %}
+
+<div class="wapper" >
+    <div class="wapper-heading" style="padding-bottom: 30px">
+    <h1 style="text-size: 5px;">Nhập OTP</h1>
+    </div>
+    {% for message in messages %}
+    <div class="container-fluid p-0">
+      <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="True">&times;</span>
+        </button>
+        {{ message }}
+      </div>
+    </div>
+    {% endfor %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <input id="otp" type="text" name="otp">
+
+		<button class="btn btn-primary mt-4" type="submit">Xác nhận</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,126 @@
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Humberger Begin -->
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+        <a href="#"><img src="img/logo.png" alt=""></a>
+    </div>
+    <div class="humberger__menu__widget">
+
+        {% if not user.is_authenticated %}
+        <div class="header__top__right__auth">
+            <a href="{% url 'users:login' %}"><i class="fa fa-user"></i>Login</a>
+        </div>
+        <div class="header__top__right__auth">
+            <a href="{% url 'users:register' %}"><i class="fa fa-user"></i>Register</a>
+        </div>
+        <div class="header__top__right__auth">
+            <a href="/admin"><i class="fa fa-user"></i>Admin Login</a>
+        </div>
+        {% else %}
+        <div class="header__top__right__auth">
+            <a href="{% url 'users:homepage' %}"><i class="fa fa-user"></i>Profile</a>
+        </div>
+        <div class="header__top__right__auth"> </div>
+        <div class="header__top__right__auth">
+            <a href="{% url 'users:logout' %}"><i class="fa fa-sign-out"></i>Logout</a>
+        </div>
+        {% endif %}
+    </div>
+    <nav class="humberger__menu__nav mobile-menu">
+        <ul>
+            <li><a href="#">Pages</a>
+                <ul class="header__menu__dropdown">
+                    <li><a href="{% url 'users:homepage' %}">HomePage</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="mobile-menu-wrap"></div>
+    <div class="header__top__right__social">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+    </div>
+    <div class="humberger__menu__contact">
+        <ul>
+            <li><i class="fa fa-envelope"></i> admin@gmail.com</li>
+            <li>Welcome to the page</li>
+        </ul>
+    </div>
+</div>
+<!-- Humberger End -->
+
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-2">
+                    <div class="header__top__left">
+                        <ul>
+                            <li><i class="fa fa-envelope"></i>admin@gmail.com</li>
+                            <li>Welcome to the page</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="header__top__right">
+                        <div class="header__top__right__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </div>
+                        {% if not user.is_authenticated %}
+                        <div class="header__top__right__auth">
+                            <a href="{% url 'users:login' %}"><i class="fa fa-user"></i>Login</a>
+                        </div>
+                        <div class="header__top__right__auth">
+                            <a href="{% url 'users:register' %}"><i class="fa fa-user"></i>Register</a>
+                        </div>
+                        <div class="header__top__right__auth">
+                            <a href="/admin"><i class="fa fa-user"></i>Admin</a>
+                        </div>
+                        {% else %}
+                        <div class="header__top__right__auth">
+                            <a href="{% url 'users:homepage' %}"><i class="fa fa-user"></i>Profile</a>
+                        </div>
+                        <div class="header__top__right__auth"> </div>
+                        <div class="header__top__right__auth">
+                            <a href="{% url 'users:logout' %}"><i class="fa fa-sign-out"></i>Logout</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="#">Pages</a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="{% url 'users:homepage' %}">HomePage</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-11 col-md-6">
+                <nav class="header__top__right">
+                    <div class="user_todo"> 
+                        <p>Xin chao {{ user.username }}</p>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->

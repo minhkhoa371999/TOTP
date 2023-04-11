@@ -1,0 +1,49 @@
+<!-- todo_list/todo_app/templates/base.html -->
+<!-- Base template -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Block -->
+    <link rel="stylesheet" href="{% static 'homepage/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/todo.css' %}" type="text/css"> {% block cssblock %} {% endblock %}
+    <title>To-do Lists</title>
+</head>
+
+<body>
+    {% include 'navbar_todo.html' %} 
+
+    <div class="body_todo">
+        <h1 onclick="location.href='{% url "todo_app:todo_list" %}'">
+            My To-do Lists
+        </h1>
+
+    </div>
+    
+    <div>
+        {% block content %}
+        This content will be replaced by different html code for each page.
+        {% endblock %}
+    </div>
+</body>
+
+</html>

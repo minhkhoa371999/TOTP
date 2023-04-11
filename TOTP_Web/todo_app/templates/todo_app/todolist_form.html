@@ -1,0 +1,23 @@
+<!-- todo_list/todo_app/templates/todo_app/todolist_form.html -->
+{% extends "base_todo.html" %}
+{% block title %}Todo List{% endblock %}
+{% block content %}
+
+<h3>{{ title }}</h3>
+<div>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input
+                value="Save"
+                type="submit">
+            <input
+                value="Cancel"
+                type="button"
+                onclick="location.href='{% url "todo_app:todo_list" %}';">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
